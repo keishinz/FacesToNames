@@ -8,7 +8,17 @@
 
 import UIKit
 
-class Person: NSObject {
+class Person: NSObject, NSCoding {
+    func encode(with encoder: NSCoder) {
+        encoder.encode(name, forKey: "name")
+        encoder.encode(image, forKey: "image")
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        name = decoder.decodeObject(forKey: "name") as? String ?? ""
+        image = decoder.decodeObject(forKey: "image") as? String ?? ""
+    }
+    
     
     var name: String
     var image: String
