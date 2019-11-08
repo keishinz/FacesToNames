@@ -59,6 +59,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             person.name = newName
             
             self.collectionView.reloadData()
+            self.save()
         })
         
         present(ac, animated: true, completion: nil)
@@ -77,6 +78,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let newPerson = Person(name: "Unknown", image: imageName)
         people.append(newPerson)
         collectionView.reloadData()
+        save()
         
         dismiss(animated: true, completion: nil)
     }
